@@ -71,3 +71,22 @@ export const loginUser = async (req, res) => {
         });
     }
 };
+
+export const getUsers = async (req, res) => {
+    try {
+
+    const users = await User.find({}, "fullName email role");
+
+    return res.status(200).json({
+        message: "Users fetched successfully",
+        users,
+    });
+
+    } catch (error) {
+
+    return res.status(500).json({
+        message: error.message,
+    });
+
+    }
+};
