@@ -14,11 +14,11 @@ export const createTenant = async (req, res) => {
             });
         }
         
-        if(existingUser.role !== "tenant") {
-            return res.status(400).json({
-                message: "Selected user is not a tenant"
-            });
-        }
+        if(existingUser.role !== "tenant" && existingUser.role !== "user") {
+        return res.status(400).json({
+        message:"Selected user is not a tenant"
+    });
+}
         const alreadyAssigned = await Tenant.findOne({user});
         if(alreadyAssigned) {
             return res.status(400).json({
