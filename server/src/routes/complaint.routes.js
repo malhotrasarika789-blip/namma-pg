@@ -7,7 +7,7 @@ import { createComplaintSchema, updateComplaintSchema } from "../validations/com
 
 const router = express.Router();
 
-router.post("/",authMiddleware,checkRole("owner"),validate(createComplaintSchema),createComplaint);
+router.post("/",authMiddleware,checkRole("tenant"),validate(createComplaintSchema),createComplaint);
 router.get("/",authMiddleware,checkRole("owner"),getComplaints);
 router.get("/:id",authMiddleware,checkRole("owner"),getComplaintById);
 router.put("/:id",authMiddleware,checkRole("owner"),validate(updateComplaintSchema),updateComplaint);
