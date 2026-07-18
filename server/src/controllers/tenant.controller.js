@@ -288,25 +288,30 @@ export const getMyComplaints = async(req,res) => {
     }
 };
 
-export const createComplaint = async(req,res) => {
-    try{
+export const createComplaint = async (req, res) => {
+    try {
         const tenant = await Tenant.findOne({
-            user:req.user.id
+            user: req.user.id
         });
-        
+        if (!tenant) {
+            return res.status(404).json({
+                message: "Tenant not found"
+            });
+        }
+        const { category, description, status } = req.body;
         const complaint = await Complaint.create({
-            tenant:tenant._id,
-            title:req.body.title,
-            description:req.body.description,
-            priority:req.body.priority
+            tenant: tenant._id,
+            category,
+            description,
+            status: status || "Open"
         });
         return res.status(201).json({
-            message:"Complaint created successfully",
+            message: "Complaint created successfully",
             complaint
         });
-    }catch(error){
+    } catch (error) {
         return res.status(500).json({
-            message:error.message
+            message: error.message
         });
     }
 };
