@@ -21,12 +21,10 @@ export const registerSchema = Joi.object({
             "any.required": "Password is required",
         }),
 
-    role: Joi.string().valid("owner", "tenant").required().messages({
-            "any.only": "Role must be owner or tenant",
-            "string.empty": "Role is required",
-            "any.required": "Role is required",
+    role: Joi.string().valid("user", "owner", "tenant", "admin").default("user").messages({
+            "any.only": "Invalid role",
         }),
-});
+    });
 
 export const loginSchema = Joi.object({
     email: Joi.string().email().trim().lowercase().required().messages({
