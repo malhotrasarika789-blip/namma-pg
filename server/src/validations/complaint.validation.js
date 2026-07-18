@@ -1,18 +1,8 @@
 import Joi from "joi";
 
-
 export const createComplaintSchema = Joi.object({
 
-    tenant:Joi.string()
-    .required()
-    .messages({
-        "string.empty":"Tenant is required",
-        "any.required":"Tenant is required",
-    }),
-
-
-    category:Joi.string()
-    .valid(
+    category:Joi.string().valid(
         "Wi-Fi",
         "Water",
         "Electricity",
@@ -27,30 +17,20 @@ export const createComplaintSchema = Joi.object({
     }),
 
 
-    description:Joi.string()
-    .min(5)
-    .required()
-    .messages({
+    description:Joi.string().min(5).required().messages({
         "string.min":"Description must be at least 5 characters",
         "any.required":"Description is required",
     }),
 
-
-    status:Joi.string()
-    .valid(
+    status:Joi.string().valid(
         "Open",
         "In Progress",
         "Resolved"
     )
-
 });
 
-
-
 export const updateComplaintSchema = Joi.object({
-
-    category:Joi.string()
-    .valid(
+    category:Joi.string().valid(
         "Wi-Fi",
         "Water",
         "Electricity",
@@ -58,17 +38,6 @@ export const updateComplaintSchema = Joi.object({
         "Room Repair",
         "Other"
     ),
-
-
-    description:Joi.string()
-    .min(5),
-
-
-    status:Joi.string()
-    .valid(
-        "Open",
-        "In Progress",
-        "Resolved"
-    )
-
+    description: Joi.string().min(5),
+    status: Joi.string().valid("Open","In Progress","Resolved")
 });
