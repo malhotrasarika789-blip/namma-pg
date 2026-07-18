@@ -315,3 +315,38 @@ export const createComplaint = async (req, res) => {
         });
     }
 };
+
+export const getMyComplaintById = async (req, res) => {
+    try {
+        const tenant = await Tenant.findOne({
+            user: req.user.id
+        });
+
+        if (!tenant) {
+            return res.status(404).json({
+                message: "Tenant not found"
+            });
+        }
+
+        const complaint = await Complaint.findOne({
+            _id: req.params.id,
+            tenant: tenant._id
+        });
+
+        if (!complaint) {
+            return res.status(404).json({
+                message: "Complaint not found"
+            });
+        }
+
+        return res.status(200).json({
+            message: "Complaint fetched successfully",
+            complaint
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message
+        });
+    }
+};
