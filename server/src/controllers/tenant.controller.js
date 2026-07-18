@@ -190,6 +190,9 @@ export const getMyProfile = async(req,res) => {
 
 export const getTenantDashboard = async(req,res) => {
     try{
+
+        console.log("LOGIN USER ID:", req.user.id);
+        console.log("LOGIN ROLE:", req.user.role);
         const tenant = await Tenant.findOne({user:req.user.id})
         .populate({
             path:"bed",
@@ -200,6 +203,9 @@ export const getTenantDashboard = async(req,res) => {
                 }
             }
         });
+
+        console.log("TENANT FOUND:", tenant);
+
         if(!tenant){
             return res.status(404).json({
                 message:"Tenant not found"
@@ -237,8 +243,9 @@ export const getMyRoom = async(req,res) => {
             });
         }
         return res.status(200).json({
-            room:tenant.bed
-        });
+            room: tenant.bed,
+            monthlyRent: tenant.monthlyRent
+});
     }catch(error){
         return res.status(500).json({
             message:error.message
