@@ -14,6 +14,13 @@ export const createComplaint = async (req,res)=>{
                 message:"Tenant not found"
             });
         }
+
+        console.log("FINAL DATA BEFORE CREATE:", {
+            tenant: tenant._id,
+            category,
+            description,
+            status
+        });
         const complaint = await Complaint.create({
             tenant: tenant._id,
             category: category,
