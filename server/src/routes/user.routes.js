@@ -16,7 +16,7 @@ router.get("/profile",authMiddleware,(req, res) => {
     });
 }
 );
-router.get("/",authMiddleware,checkRole("owner"),getUsers);
+router.get("/",authMiddleware, checkRole("admin"),getUsers);
 router.get("/owner-test",authMiddleware,checkRole("owner"),(req, res) => {
     res.status(200).json({
         message: "Owner route accessed"});
