@@ -1,41 +1,46 @@
 import Complaint from "../models/complaint.model.js";
 import Tenant from "../models/tenant.model.js";
 
-export const createComplaint = async (req,res)=>{
+export const createComplaint = async (req, res) => {
     try {
         console.log("BACKEND BODY:", req.body);
-        const { category, description, status } = req.body;
-        const tenant = await Tenant.findOne({
-            user: req.user.id
-        });
+        const { title, description, priority, status, room } = req.body;
+        const tenant = await Tenant.findOne({user: req.user.id});
 
-        if(!tenant){
+        if (!tenant) {
             return res.status(404).json({
-                message:"Tenant not found"
+                message: "Tenant not found"
             });
         }
-
         console.log("FINAL DATA BEFORE CREATE:", {
             tenant: tenant._id,
-            category,
+            room,
+            title,
             description,
+            priority,
             status
         });
+
         const complaint = await Complaint.create({
             tenant: tenant._id,
-            category: category,
-            description: description,
+            room,
+            title,
+            description,
+            priority: priority || "Medium",
             status: status || "Open"
         });
 
         return res.status(201).json({
-            message:"Complaint created successfully",
+            message: "Complaint created successfully",
             complaint
         });
-    } catch(error){
+
+    } catch (error) {
+
         console.log("COMPLAINT BACKEND ERROR:", error);
+
         return res.status(500).json({
-            message:error.message
+            message: error.message
         });
 
     }
