@@ -1,4 +1,4 @@
-import Sidebar from "./Sidebar";
+import Sidebar from "./sidebar";
 import Navbar from "./Navbar";
 
 function DashboardLayout({children}){
