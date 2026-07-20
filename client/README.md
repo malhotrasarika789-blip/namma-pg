@@ -1,16 +1,52 @@
-# React + Vite
+# 🌐 Namma PG Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend application for **Namma PG – PG Operations Management Platform** built with **React + Vite**.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+👉 https://client-henna-seven-81.vercel.app
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔐 Authentication & role-based routing
+- 🏢 Owner dashboard
+- 👤 Tenant dashboard
+- 🚪 Room management UI
+- 💰 Rent management UI
+- 🛠️ Complaint management UI
+- 📱 Responsive design
+- 🎨 Tailwind CSS + Shadcn UI
+- ⚡ Smooth animations with Framer Motion
 
-## Expanding the ESLint configuration
+## 🧰 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Vite
+- React Router
+- Tailwind CSS
+- Shadcn UI
+- Axios
+- Framer Motion
+- Sonner
+
+## 📦 Installation
+npm install
+
+## ▶️ Run Development Server
+npm run dev
+
+## 🏗️ Build for Production
+npm run build
+
+## 📁 Folder Structure
+src/
+├── components/
+├── pages/
+├── owner/
+├── tenant/
+├── api/
+└── App.jsx
+
+## 👩‍💻 Author
+
+Sarika Malhotra
