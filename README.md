@@ -5,8 +5,7 @@ Namma PG is a full-stack MERN application for managing PG (Paying Guest) operati
 ## Live Demo
 
 - Frontend: https://client-henna-seven-81.vercel.app
-- Backend API: https://namma-pg.onrender.com/api
-
+- Backend: https://namma-pg.onrender.com
 ## Features
 
 - User authentication
