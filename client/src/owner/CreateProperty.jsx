@@ -55,6 +55,7 @@ function CreateProperty(){
                         
                     <Input name="name" placeholder="Property Name" value={formData.name} onChange={handleChange}
                     className="bg-[#071A12] border-emerald-900 text-white placeholder:text-zinc-500"/>
+
                     <Input name="address" placeholder="Address" value={formData.address} onChange={handleChange} 
                     className="bg-[#071A12] border-emerald-900 text-white placeholder:text-zinc-500"/>
                     
@@ -70,9 +71,8 @@ function CreateProperty(){
             <textarea name="description" placeholder="Description" value={formData.description} onChange={handleChange}
             className="w-full h-32 rounded-xl bg-[#071A12] border border-emerald-900 p-4 text-white placeholder:text-zinc-500 outline-none"/>
             
-            <Button disabled={loading} className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold shadow-[0_0_20px_rgba(16,185,129,0.4)]">
+            <Button type="submit" disabled={loading} className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold shadow-[0_0_20px_rgba(16,185,129,0.4)]">
                 {loading ? "Creating..." : "Create Property"}
-                
                 </Button>
         </form>
     </motion.div>
